@@ -18,7 +18,7 @@ class Query extends mysqli
         $this->getRows();
     }
 
-    public function Insert()
+    public function Insert(array $data)
     {
         $colString = implode(", ", $this->columns);
         $this->query("INSERT INTO {$this->table} ({$colString}) VALUES ()");
