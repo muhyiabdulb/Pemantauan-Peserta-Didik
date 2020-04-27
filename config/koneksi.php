@@ -1,5 +1,6 @@
-<?php  
+<?php
+require_once "Database.php";
 
-	$con = mysqli_connect("localhost","root","JDfnql65NepVC7cG","pemantauan_peserta_didik");
+$con = mysqli_connect(HOST, USER, PASS, DATABASE);
 
 ?>

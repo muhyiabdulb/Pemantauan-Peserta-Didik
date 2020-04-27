@@ -17,11 +17,13 @@ if ($tampil['jk'] == "L") {
 
 $go = new oop();
 @$table = "peserta_didik";
-@$field = array('nis' => $_POST['nis'],
-                'nama' => $_POST['nama'],
-                'jk' => $_POST['jk'],
-                'rombel' => $_POST['rombel'],
-                'rayon' => $_POST['rayon']);
+@$field = array(
+    'nis' => $_POST['nis'],
+    'nama' => $_POST['nama'],
+    'jk' => $_POST['jk'],
+    'rombel' => $_POST['rombel'],
+    'rayon' => $_POST['rayon']
+);
 @$where = "nis = $_GET[nis]";
 @$redirect = "?menu=data_diri";
 
@@ -33,7 +35,7 @@ if (isset($_POST['ubah'])) {
     <div class="card-header py-3">
         <h2 align="center">Edit Data Anda : </h2>
     </div>
-    
+
     <div class="card-body">
         <form method="post">
             <table align="center">
@@ -67,15 +69,15 @@ if (isset($_POST['ubah'])) {
                     <div class="row">
                         <div class="col">
                             <label>Rombel : </label>
-                            
+
                             <select name="rombel" required class="form-control form-control-user">
                                 <option><?php echo $tampil['rombel'] ?></option>
-                                    <?php
-                                        $a = $go->tampil($con, "rombel");
-                                        foreach ($a as $r) {
-                                    ?>
-                                        <option value="<?php echo $r['1'] ?>"><?php echo $r['1'] ?></option>
-                                    <?php } ?>
+                                <?php
+                                $a = $go->tampil($con, "rombel");
+                                foreach ($a as $r) {
+                                ?>
+                                    <option value="<?php echo $r['1'] ?>"><?php echo $r['1'] ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="col">
@@ -83,8 +85,8 @@ if (isset($_POST['ubah'])) {
                             <select name="rayon" required class="form-control form-control-user">
                                 <option><?php echo $tampil['rayon'] ?></option>
                                 <?php
-                                    $a = $go->tampil($con, "rayon");
-                                    foreach ($a as $r) {
+                                $a = $go->tampil($con, "rayon");
+                                foreach ($a as $r) {
                                 ?>
                                     <option value="<?php echo $r['1'] ?>"><?php echo $r['1'] ?></option>
                                 <?php } ?>
