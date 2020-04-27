@@ -115,8 +115,8 @@
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-          <h6 class="m-0 font-weight-bold text-primary">NIS : <?php echo @$tampil[nis]; ?></h6> <b></b>
-          <h6  class="m-5 font-weight-bold text-primary">Nama : <?php echo @$tampil[nama]; ?></h6>
+          <h6 class="m-0 font-weight-bold text-primary">NIS : <?php echo @$tampil['nis']; ?></h6> <b></b>
+          <h6  class="m-5 font-weight-bold text-primary">Nama : <?php echo @$tampil['nama']; ?></h6>
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
