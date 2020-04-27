@@ -1,13 +1,23 @@
 <?php
 	session_start();
+	require 'config/koneksi.php';
 
-	if (isset($_POST['admin'])) {
-		header("Location: admin/");
-		exit;
+	if (isset($_POST['login'])) { 
+			$pass = md5($_POST['password']);
+			$sql = mysqli_query($con, "SELECT * FROM peserta_didik WHERE username = '$_POST[username]' && password = '$pass'");
+			$cek = mysqli_num_rows($sql);
+			$f = mysqli_fetch_array($sql);
+			$_SESSION['nis'] = $f['nis'];
+			$_SESSION['nama'] = $f['nama'];
+		if($cek > 0){
+			echo "<script>alert('Selamat Datang ".$_SESSION['nama']."');document.location.href='hal_peserta_didik.php?menu=home';</script>";
+		}else{
+			echo "<script>alert('Gagal Login');document.location.href='index.php';</script>";
+		}
 	}
 
-	if (isset($_POST['pd'])) {
-		header("Location: pesertadidik/");
+	if (isset($_POST['register'])) {
+		header("Location: register.php");
 		exit;
 	}
 ?>
@@ -39,15 +49,20 @@
 	        <div class="card o-hidden border-0 shadow-lg my-5">
 	          <div class="card-body p-0">
 				<div align="center">
-					<h1>Login Sebagai :</h1>
+					<h1>HALAMAN LOGIN</h1>
 				</div>
                			<div class="p-5">
 							<form method="post">
-			                   
+			                    <div class="form-group">
+			                      <input type="text" name="username" class="form-control form-control-user" placeholder="Username">
+			                    </div>
+			                    <div class="form-group">
+			                      <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+			                    </div>
 			                    <div class="form-group" align="center">
-				                    <input type="submit" name="admin" value="Administrator" class="btn btn-primary btn-user">
+				                    <input type="submit" name="login" value="Login" class="btn btn-primary btn-user">
 				                    
-				                    <input type="submit" name="pd" value="Peserta Didik" class="btn btn-primary btn-user">
+				                    <input type="submit" name="register" value="Register" class="btn btn-primary btn-user">
 				                </div>
 			                 </form>
 			             </div>
