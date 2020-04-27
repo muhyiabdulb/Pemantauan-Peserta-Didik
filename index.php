@@ -28,7 +28,7 @@
 	<link rel="stylesheet" href="assets/bootstrap.min.css">
 
 </head>
-<body class="bg-light">
+<body class="bg-primary">
 	<main>
 		<section class="container-fluid py-4">
 			<div class="container">
@@ -50,9 +50,9 @@
 									</div>
 
 									<div class="form-group row">
-										<label class="col-sm-4 col-form-label" for="username">Password</label>
+										<label class="col-sm-4 col-form-label" for="password">Password</label>
 										<div class="col-sm-8">
-											<input class="form-control" type="password" name="username" id="username" placeholder="username">
+											<input class="form-control" type="password" name="password" id="password" placeholder="username">
 										</div>
 									</div>
 
